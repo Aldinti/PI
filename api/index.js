@@ -17,12 +17,17 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-
+const server = require("./src/app.js");
+const { conn } = require("./src/db.js");
+const getApiInfo = require("./src/controllers/getApiInfo.js");
+const PORT = 3001;
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
-});
+conn
+	.sync({ alter: true })
+	.then(() => {
+		server.listen(PORT, async () => {
+			getApiInfo();
+			console.log(`Listening at port ${PORT}`); // eslint-disable-line no-console
+		});
+	})
+	.catch((err) => console.log(err));
