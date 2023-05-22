@@ -7,13 +7,17 @@ const createActivity = async ({
 	season,
 	countries,
 }) => {
-	const newActivity = await Activity.create({
-		name,
-		difficulty,
-		duration,
-		season,
+	const [newActivity, created] = await Activity.findOrCreate({
+		where: { name: name },
+		defaults: {
+			name: name,
+			difficulty: difficulty,
+			duration: duration,
+			season: season,
+		},
 	});
 	await newActivity.setCountries(countries);
+	if (!created) throw new Error(`La actividad '${name}' ya existe`);
 
 	const activityWithCountry = await Activity.findOne({
 		where: { name: name },
