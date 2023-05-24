@@ -1,7 +1,6 @@
 const { Country, Activity } = require("../db");
 
 const getCountryById = async (id) => {
-	// console.log("Debug [id]: ",id.toUpperCase());
 	const countryFinded = await Country.findByPk(id.toUpperCase(), {
 		include: {
 			model: Activity,

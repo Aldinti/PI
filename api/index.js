@@ -21,13 +21,13 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const getApiInfo = require("./src/controllers/getApiInfo.js");
 const PORT = 3001;
-// Syncing all the models at once.
+
 conn
 	.sync({ alter: true })
 	.then(() => {
 		server.listen(PORT, async () => {
 			getApiInfo();
-			console.log(`Listening at port ${PORT}`); // eslint-disable-line no-console
+			console.log(`Listening at port ${PORT}`);
 		});
 	})
 	.catch((err) => console.log(err));

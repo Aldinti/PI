@@ -12,12 +12,10 @@ const router = Router();
 
 router.get("/", async (req, res) => {
 	const { name } = req.query;
-	// console.log("Debug route: ", name);
 	try {
 		const resCountries = name
 			? await getAllCountries({ name })
 			: await getAllCountries();
-		// console.log("Debug route2: ", resCountries);
 		res.status(200).json(resCountries);
 	} catch (error) {
 		res.status(404).json({ error: error.message });

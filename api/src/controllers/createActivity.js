@@ -32,7 +32,6 @@ const createActivity = async ({
 			},
 		},
 	});
-	// console.log("ActWithCount: ",activityWithCountry);
 	return activityWithCountry;
 };
 
