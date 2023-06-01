@@ -20,14 +20,14 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const getApiInfo = require("./src/controllers/getApiInfo.js");
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 conn
 	.sync({ alter: true })
 	.then(() => {
 		server.listen(PORT, async () => {
 			getApiInfo();
-			console.log(`Listening at port ${PORT}`);
+			return console.log(`Listening at port ${PORT}`);//! Modificar el console.log()->response()
 		});
 	})
-	.catch((err) => console.log(err));
+	.catch((err) => { throw new Error(err) });
