@@ -1,0 +1,23 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0);
+    color: var(--color-4);
+	width: fit-content;
+	padding: 1em;
+	border-radius: 10px;
+	box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.7);
+	text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.container:hover{
+	transform: scale(1.05);
+    box-shadow: 6px 6px 6px 2px rgba(0, 0, 0, 0.8);
+	background-color: var(--color-2);
+}
+
+img{
+	width:195px;
+	height:130px;
+}
