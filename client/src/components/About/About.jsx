@@ -1,5 +1,5 @@
 import React from "react";
-import './About.module.css'
+import styles from './About.module.css'
 import github from "../../img/github.png";
 import linkedin from "../../img/linkedin.png";
 import mail from "../../img/mail.png";
@@ -12,7 +12,7 @@ function About() {
 				target='_blank'
 				href='https://github.com/Aldinti'
 			>
-				<img
+				<img className={styles.imagenes}
 					alt='logo github'
 					src={github}
 				/>
@@ -22,7 +22,7 @@ function About() {
 				target='_blank'
 				href='https://www.linkedin.com/in/Aldinti/'
 			>
-				<img
+				<img className={styles.imagenes}
 					alt='logo linkedin'
 					src={linkedin}
 				/>
@@ -32,7 +32,7 @@ function About() {
 				target='_blank'
 				href='mailto:aldopati@gmail.com'
 			>
-				<img
+				<img className={styles.imagenes}
 					alt='logo mail'
 					src={mail}
 				/>

@@ -7,7 +7,6 @@ export default function Cards({ countries }) {
 			{countries.map(({ id, name, image, continent, population }) => (
 				<Card
 					key={`${continent}_${id}`}
-					id={id}
 					name={name}
 					image={image}
 					continent={continent}

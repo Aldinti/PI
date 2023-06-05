@@ -8,14 +8,14 @@ footer {
     padding-top: 8px;
 }
 
-img {
+.imagenes {
     height: 60px;
     width: 60px;
     margin-left: 15px;
     margin-right: 15px;
 }
 
-img:hover{
+.imagenes:hover{
     padding-top: 10px;
     height: 50px;
     width: 50px;

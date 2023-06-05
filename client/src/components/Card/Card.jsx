@@ -7,7 +7,7 @@ function Card({ id, name, image, continent, population }) {
 		<div className={styles.container}>
 			<hr />
 			<Link key={id} to={`/detail/${id}`}>
-			<img className={styles.img}
+			<img className={styles.imagen}
 				src={image}
 					alt='img not found' />
 			</Link>
