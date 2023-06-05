@@ -1,5 +1,5 @@
 import React from "react";
-// import s from './About.module.css'
+import './About.module.css'
 import github from "../../img/github.png";
 import linkedin from "../../img/linkedin.png";
 import mail from "../../img/mail.png";

@@ -8,7 +8,7 @@ function LandingPage() {
 			<h1>Welcome to world's countries</h1>
 			<Link to='/home'>
 				<button className={styles.enter}>
-				<span class="text">Start</span><span>the tour</span>
+				<span className="text">Start</span><span>the tour</span>
 				</button>
 			</Link>
 		</div>

@@ -8,10 +8,11 @@ import {
 	filterByContinent,
 	orderCountriesByPopulation,
 } from "../../actions/index";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Cards from "../Cards/Cards";
 import Paginado from "../Paginado/Paginado";
 import SearchBar from "../SearchBar/SearchBar";
+import { Nav } from "../Nav/Nav";
 import styles from "./Home.module.css";
 
 function Home() {
@@ -120,14 +121,15 @@ function Home() {
 
 	return (
 		<div>
-			<Link to="/activities">Create Activities</Link><br />
+			<Nav />
+			<h1>World's Countries</h1>
 			<button
-				className={styles.titulo}
+				className={styles.botonReload}
 				onClick={(event) => {
 					handleClick(event);
 				}}
 			>
-				World's Countries
+				Reload
 			</button>
 			<div>
 				<select

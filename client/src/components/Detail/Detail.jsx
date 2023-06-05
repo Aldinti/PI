@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../actions";
 
-export default function Detail(props) {
-	console.log("Debug Detail: ",props);
+export default function Detail() {
+	const {id}=useParams();
+	console.log("Debug Detail: ", id);
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(getDetail(props.match.params.id));
-	}, [dispatch, props.match.params.id]);
+		dispatch(getDetail(id));
+	}, [dispatch, id]);
 
-	const { id, name, image, continent, capital, subregion, area } = useSelector(
+	const detalles = useSelector(
 		(state) => state.detail,
 	);
 
@@ -19,20 +20,20 @@ export default function Detail(props) {
 			<Link to='/home'>
 				<button>Go back</button>
 			</Link>
-			{id ? (
-				<div key={id}>
+			{detalles.id ? (
+				<div key={detalles.id}>
 					<h1>Detail</h1>
-					<h2>Id: {id}</h2>
-					<h2>Nombre: {name}</h2>
+					<h2>Id: {detalles.id}</h2>
+					<h2>Nombre: {detalles.name}</h2>
 					<h3>Bandera:</h3>
 					<img
-						src={image}
-						alt={name}
+						src={detalles.image}
+						alt={detalles.name}
 					/>
-					<h3>Continente: {continent}</h3>
-					<h3>Capital: {capital}</h3>
-					<h3>Subregión: {subregion ? subregion : ""}</h3>
-					<h3>Área: {area ? area : ""}</h3>
+					<h3>Continente: {detalles.continent}</h3>
+					<h3>Capital: {detalles.capital}</h3>
+					<h3>Subregión: {detalles.subregion ? detalles.subregion : ""}</h3>
+					<h3>Área: {detalles.area ? detalles.area : ""}</h3>
 				</div>
 			) : (
 				<h1>Loading...</h1>
