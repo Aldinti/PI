@@ -5,7 +5,6 @@ import { getDetail } from "../../actions";
 
 export default function Detail() {
 	const {id}=useParams();
-	console.log("Debug Detail: ", id);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getDetail(id));

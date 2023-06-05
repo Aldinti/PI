@@ -60,7 +60,6 @@ function Home() {
 
 	function handleSort(event) {
 		event.preventDefault();
-		console.log(event.target.id);
 		if (event.target.id === "orderByName")
 			dispatch(orderCountriesByName(event.target.value));
 		if (event.target.id === "orderByPopulation")

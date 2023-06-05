@@ -8,6 +8,7 @@ export default function Cards({ countries }) {
 				<Card
 					key={`${continent}_${id}`}
 					name={name}
+					id={id}
 					image={image}
 					continent={continent}
 					population={population}

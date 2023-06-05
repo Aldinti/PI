@@ -3,10 +3,14 @@ import styles from './About.module.css'
 import github from "../../img/github.png";
 import linkedin from "../../img/linkedin.png";
 import mail from "../../img/mail.png";
+import { Link } from 'react-router-dom';
 
 function About() {
 	return (
 		<footer>
+			<Link to='/home'>
+				<button>Go back</button>
+			</Link><br />
 			<a
 				rel='noreferrer'
 				target='_blank'
