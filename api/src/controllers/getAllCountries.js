@@ -15,7 +15,7 @@ const getAllCountries = async (query) => {
 	if (!query) return allCountries;
 	const countryFindedByName = await Country.findAll({
 		where: {
-			name: { [Op.iLike]: `${query.name}%` },
+			name: { [Op.iLike]: `%${query.name}%` },
 		},
 	});
 	if (!countryFindedByName.length) throw new Error(`No se encontró país que incluya '${query.name}' en el nombre!`);

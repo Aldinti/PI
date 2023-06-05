@@ -5,9 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./img/mapamundo2.png");
+  background-attachment: fixed;
+  animation: slider 450s infinite linear;
+  --color-1: #f7aa00;
+	--color-2: #235784;
+	--color-3: #40a8c4;
+	--color-4: #bcdbdf;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes slider {
+  to {
+    background-position: 2048px 0;
+  }
 }

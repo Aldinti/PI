@@ -1,11 +1,15 @@
 const charAllowed = /\W+/g;
+// const charAllowed = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g;
 
-export const validate = (form) => {
+export default function validate(form) {
 	let errors = {};
 	if (!form.name) {
 		errors.name = "Name is required";
 	}
-	if (form.name.length < 3 || form.name.length > 30) {
+	if (
+		(form.name.length >= 1 && form.name.length < 3) ||
+		form.name.length > 30
+	) {
 		errors.name = "Name should be [3 to 30] characters";
 	}
 	if (charAllowed.test(form.name)) {
@@ -26,11 +30,11 @@ export const validate = (form) => {
 	if (!form.season || form.season.length === 0) {
 		errors.season = "At least one season";
 	}
-	if (!form.season || form.season.length > 2) {
+	if (!form.season /* || form.season.length > 2 */) {
 		errors.season = "Maximun two seasons";
 	}
 	if (!form.countries || form.countries.length === 0) {
 		errors.countries = "Choose a country";
 	}
 	return errors;
-};
+}
