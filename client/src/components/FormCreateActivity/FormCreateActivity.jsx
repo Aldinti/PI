@@ -54,7 +54,7 @@ function FormCreateActivity() {
 	}
 
 	function handleDeleteCountrySelect(elem) {
-		// setSelectedCountries(selectedCountries.filter((country) => country !== elem));
+		setSelectedCountries(selectedCountries.filter((country) => country !== elem));
 		setNewActivity({
 			...newActivity,
 			countries: selectedCountries.filter((country) => country !== elem),
@@ -134,12 +134,13 @@ function FormCreateActivity() {
 								{country.name}
 							</option>
 						))}
-					</select>
-					<ul>
-						<li className={styles.libox}>{newActivity.countries.map((country) =>
-							<div>{country} <button onClick={()=>handleDeleteCountrySelect(country)}>X</button></div>+" ")}
-						</li>
-					</ul>
+					</select><ul>
+					{
+						newActivity.countries.map((country) =>  <li className={styles.libox}>
+							{country}<button key={country} onClick={()=>handleDeleteCountrySelect(country)}>X</button></li>
+						)
+					}</ul>
+					{/* <ul><li className={styles.libox}>{newActivity.countries.map((country) => country += "+" )}</li></ul> */}
 				</div>
 				<span className={styles.spanCrearAct}>{errors.countries}</span>
 				<button type='submit' className={styles.abox}>Crear Actividad <span className={styles.spanbox}></span></button>
