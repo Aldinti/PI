@@ -53,6 +53,14 @@ function FormCreateActivity() {
 		return selectedCountries;
 	}
 
+	function handleDeleteCountrySelect(elem) {
+		// setSelectedCountries(selectedCountries.filter((country) => country !== elem));
+		setNewActivity({
+			...newActivity,
+			countries: selectedCountries.filter((country) => country !== elem),
+		});
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(newActivity);
@@ -84,54 +92,32 @@ function FormCreateActivity() {
 	}, [dispatch]);
 
 	return (
-		<div className={styles.divCrearAct}>
-			<BtnGoBack />
-			<h1>Crear Actividad(es)</h1>
+
+		<div className={styles.loginbox}>
+			<h1 className={styles.h1box}>Crear Actividad(es)</h1>
 			<form
-				className={styles.formContainer}
+				className={styles.formbox}
 				onSubmit={(event) => handleSubmit(event)}
 			>
-				<div className={styles.divCrearAct}>
-					<label>Nombre: </label>
-					<input
-						type='text'
-						name='name'
-						value={newActivity.name}
-						onChange={(event)=>handleChange(event)}
-					/>
+				<div className={styles.userbox}>
+					<input className={styles.inputbox} type='text' name='name' value={newActivity.name} onChange={(event)=>handleChange(event)}/>
+					<label className={styles.labelbox}>Nombre: </label>
 				</div>
 				<span className={styles.spanCrearAct}>{errors.name}</span>
-				<div className={styles.divCrearAct}>
-					<label>Dificultad: </label>
-					<input
-						type='number'
-						name='difficulty'
-						min={1}
-						max={5}
-						value={newActivity.difficulty}
-						onChange={(event)=>handleChange(event)}
-					/>
+				<div className={styles.userbox}>
+					<input className={styles.inputbox} type='number' name='difficulty'	min={1}	max={5}	value={newActivity.difficulty}	onChange={(event)=>handleChange(event)}/>
+					<label className={styles.labelbox}>Dificultad: </label>
 				</div>
 				<span className={styles.spanCrearAct}>{errors.difficulty}</span>
-				<div className={styles.divCrearAct}>
-					<label>Duración: </label>
-					<input
-						type='number'
-						name='duration'
-						min={1}
-						max={24}
-						value={newActivity.duration}
-						onChange={(event)=>handleChange(event)}
-					/>
+				<div className={styles.userbox}>
+					<input className={styles.inputbox} type='number' name='duration' min={1} max={24} value={newActivity.duration} onChange={(event)=>handleChange(event)}/>
+					<label className={styles.labelbox}>Duración: </label>
 				</div>
 				<span className={styles.spanCrearAct}>{errors.duration}</span>
-				<div className={styles.divCrearAct}>
-					<label>Temporada</label>
-					<select
-						name='season'
-						id='season'
-						onChange={(event)=>handleChange(event)}
-					>
+				<div className={styles.userbox}>
+					{/* <label className={styles.labelbox}>Temporada</label><br /><br />	 */}
+					<select className={styles.selectbox} name='season' id='season' onChange={(event)=>handleChange(event)}>
+						<option value='Temporada'>Temporada</option>
 						<option value='Primavera'>Primavera</option>
 						<option value='Verano'>Verano</option>
 						<option value='Otoño'>Otoño</option>
@@ -139,31 +125,48 @@ function FormCreateActivity() {
 					</select>
 				</div>
 				<span className={styles.spanCrearAct}>{errors.season}</span>
-				<div className={styles.divCrearAct}>
-					<label>Países: </label>
-					<select
-						name='countries'
-						onChange={(event)=>handleChange(event)}
-					>
+				<div className={styles.userbox}>
+					<label className={styles.labelbox}>Países: </label>
+					<br /><br />
+					<select className={styles.selectbox} name='countries' onChange={(event)=>handleChange(event)}>
 						{countries.map((country) => (
-							<option
-								key={country.id}
-								type='text'
-								value={country.id}
-							>
+							<option	key={country.id} type='text' value={country.id}>
 								{country.name}
 							</option>
 						))}
 					</select>
 					<ul>
-						<li>{newActivity.countries.map((country) => country + ", ")}</li>
+						<li className={styles.libox}>{newActivity.countries.map((country) =>
+							<div>{country} <button onClick={()=>handleDeleteCountrySelect(country)}>X</button></div>+" ")}
+						</li>
 					</ul>
 				</div>
 				<span className={styles.spanCrearAct}>{errors.countries}</span>
-				<button type='submit' className={styles.buttonCrearAct}>Crear Actividad</button>
+				<button type='submit' className={styles.abox}>Crear Actividad <span className={styles.spanbox}></span></button>
+				<BtnGoBack />
 			</form>
 		</div>
 	);
 }
 
 export default FormCreateActivity;
+
+/* 
+<div class="login-box">
+ 
+  <form>
+    <div class="user-box">
+      <input type="text" name="" required="">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="" required="">
+      <label>Password</label>
+    </div><center>
+    <a href="#">
+           SEND
+       <span></span>
+    </a></center>
+  </form>
+</div>
+*/

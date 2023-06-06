@@ -33,6 +33,7 @@ export default function reducer(state = initialState, action) {
 			};
 
 		case FILTER_BY_CONTINENT:
+			state.countries = state.countriesToDisplay;
 			state.countriesFiltered =
 				action.payload === "All"
 					? state.countries

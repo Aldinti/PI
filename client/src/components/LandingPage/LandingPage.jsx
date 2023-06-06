@@ -5,7 +5,7 @@ import styles from "./LandingPage.module.css";
 function LandingPage() {
 	return (
 		<div className={styles.container}>
-			<h1>Welcome to world's countries</h1>
+			<h1 className={styles.h1landing}>Welcome to world's countries</h1>
 			<Link to='/home'>
 				<button className={styles.enter}>
 				<span className="text">Start</span><span>the tour</span>
