@@ -1,25 +1,49 @@
-h1{
+.divMainHome {
+	display: grid;
+	place-items: center;
+	height: 10vh;
+	margin: 0;
+}
+
+.h1Home {
 	color: var(--color-1);
 }
-  .botonReload {
-	width: auto;
-	height: 30px;
-	font-size: 20px;
-	margin-top: 20px;
-	color: var(--color-1);
-	background-color: rgba(0,0,0,0);
-	margin-bottom: 30px;
-	font-weight: bold;
-	transition: 0.4s;
-  }
-  .botonReload:hover {
-	transform: scale(1.2);
-	font-size: 22px;
-	box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
-	/* border-radius: 10px; */
-	color: var(--color-1);
-	background-color: rgba(0,0,0,0);
-	/* background-color: var(--color-1); */
-	font-weight: bold;
+.buttonReloadHome {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6px 12px;
+	gap: 8px;
+	height: 36px;
+	width: 120px;
+	border: none;
+	background: #ffffffaa;
+	border-radius: 20px;
 	cursor: pointer;
-  }
+}
+
+.lableHome {
+	line-height: 20px;
+	font-size: 17px;
+	color: #5d41de;
+	font-family: sans-serif;
+	letter-spacing: 1px;
+}
+
+.buttonReloadHome:hover {
+	background: #ffffff;
+}
+
+.buttonReloadHome:hover .svgiconHome {
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

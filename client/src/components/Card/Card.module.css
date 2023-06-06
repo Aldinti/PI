@@ -1,23 +1,58 @@
-.container {
-	display: flex;
-	flex-direction: column;
-	background-color: rgba(0, 0, 0, 0);
-    color: var(--color-4);
-	width: fit-content;
-	padding: 1em;
-	border-radius: 10px;
-	box-shadow: 4px 4px 2px 0px rgba(80, 80, 80, 0.7);
-	text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
+.imagen {
+	width: 185px;
+	height: 138.75px;
+	border-radius: 20px 20px 0px 0px;
+}
+.imagen:hover {
+	width: 190px;
+	height: 142.5px;
+	border-radius: 20px 20px 20px 20px;
 }
 
-.container:hover{
-	transform: scale(1.05);
-    box-shadow: 6px 6px 6px 2px rgba(156, 156, 156, 0.8);
-	background-color: var(--color-2);
+.card {
+	width: 190px;
+	height: 254px;
+	background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+	border-radius: 20px;
+	transition: all 0.3s;
+}
+.card:hover {
+	box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
 }
 
-.imagen{
-	width:195px;
-	height:130px;
+.card2 {
+	width: 190px;
+	height: 254px;
+	background-color: rgba(14, 14, 14, 0.8);
+	border-radius: 20px;
+	transition: all 0.2s;
+}
+.card2:hover {
+	transform: scale(0.98);
+	border-radius: 20px;
+}
+
+.h2Card{
+	color: var(--color-3);
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.h2Card:hover{
+	color: var(--color-4);
+}
+.h4Card{
+	color: var(--color-3);
+	margin-top: 0;
+}
+.h4Card:hover{
+	color: var(--color-4);
+}
+
+.h3Card{
+	color: var(--color-3);
+	transition: all 0.7s;
+}
+.h3Card:hover{
+	color: var(--color-4);
+	background-color: rgba(14, 14, 14, 0.5);
 }

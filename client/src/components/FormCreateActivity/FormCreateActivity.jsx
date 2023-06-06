@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { getCountries, postActivity } from "./../../actions/index";
 import styles from "./FormCreateActivity.module.css";
 import validate from "../../validate.js";
+import { BtnGoBack } from './../BtnGoBack/BtnGoBack';
 
 function FormCreateActivity() {
 	const dispatch = useDispatch();
@@ -85,9 +85,7 @@ function FormCreateActivity() {
 
 	return (
 		<div className={styles.divCrearAct}>
-			<Link to='/home'>
-				<button>Volver</button>
-			</Link>
+			<BtnGoBack />
 			<h1>Crear Actividad(es)</h1>
 			<form
 				className={styles.formContainer}
